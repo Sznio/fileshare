@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+body{
+    font-family: Roboto;
+}
+a, pre{
+    font-family: "Roboto Mono";
+}
+.folder::before, .xlsx::before, .docx::before, .goback::before{
+    font-family: "Font Awesome 5 Free"; font-weight: 900;
+}
+.folder::before {
+    content: "\f07b";
+}
+#dirlist{
+    font-size: 32px;
+    list-style: none;
+}
+#dirlist>li{
+    margin: 0.4em;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+#dirlist>li>a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+#dirlist>li::before{
+    margin: 0 0.4em;
+}
+.cpp::before {
+    font-family: 'devicon';
+    content: "";
+    font-weight: normal;
+    
+    overflow: hidden;
+}
+.xlsx::before{
+    content: "\f1c3";
+}
+.docx::before{
+    content: "\f1c2";
+}
+.goback::before{
+    content: "\f060";
+    margin-right: 0.4em;
+}
+.goback{
+    font-size: 32px;
+    color: black;
+    text-decoration: none;
+}
+h1.path{
+    font-family: "Roboto Mono";
+    font-size: clamp(24px, 6vw, 44px);
+    word-break: break-word;
+}

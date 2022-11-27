@@ -1,0 +1,16 @@
+extends ./layouts/defaultLayout.pug
+
+block content
+    .wrap
+        if(path != '/')
+            a(class="goback" href="../") Back
+            h1(class="path")=path
+        else 
+            h1 Najlepsze pliki na świecie
+        ul(id="dirlist")
+            each file in processedArray
+                - let className = (file[1] || "folder");
+                li(class=className)
+                    - let href_target = "./" + file[0] + (file[1] ? ("." + file[1]) : '')
+                    a(href=href_target noreferrer)
+                        =file[0]+ (file[1] ? ("." + file[1]) : '')

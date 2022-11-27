@@ -1,0 +1,14 @@
+extends ./layouts/defaultLayout.pug
+block css
+    link(rel="stylesheet", href="/filepage.css")
+block content
+    .wrap 
+        if(path != '/')
+            a(class="goback" href="./") Back
+        h1(class="path " + extension)=fileNameAndPath+"."+extension
+        - let moreDataMsg = (bigFile ? `\n... + ${remaining} bytes remaining.` : '')
+        .filecont
+            pre=peek+moreDataMsg
+            
+            a(class="download" href=downloadPath download=(fileName+"."+extension))
+                |Pobierz 

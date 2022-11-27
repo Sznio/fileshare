@@ -11,6 +11,6 @@ block content
             each file in processedArray
                 - let className = (file[1] || "folder");
                 li(class=className)
-                    - let href_target = "./" + file[0] + (file[1] ? ("." + file[1]) : '')
+                    - let href_target = path + file[0] + (file[1] ? ("." + file[1]) : '')
                     a(href=href_target noreferrer)
                         =file[0]+ (file[1] ? ("." + file[1]) : '')

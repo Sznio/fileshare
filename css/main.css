@@ -18,11 +18,13 @@ a, pre{
 #dirlist{
     font-size: 32px;
     list-style: none;
+    padding: 0
 }
 #dirlist>li{
     margin: 0.4em;
     border-bottom: 1px solid black;
     padding: 5px;
+    overflow-x: auto;
 }
 #dirlist>li>a{
     text-decoration: none;

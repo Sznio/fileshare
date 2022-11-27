@@ -25,9 +25,13 @@ app.get("/download/*", (req, res) => {
 app.get("/*", (req, res) => {
       console.log("Got a req on /*");
       if (!fs.existsSync(`./public${req.path}`)) {
+            // console.log(req);
             return res.send(403);
       }
       const statsObj = fs.statSync(`./public${req.path}`);
+
+      let uniformPath =
+            req.path + (req.path[req.path.length - 1] == "/" ? "" : "/");
 
       if (statsObj.isDirectory()) {
             //! Handle folder logic
@@ -45,7 +49,7 @@ app.get("/*", (req, res) => {
             });
             console.log(processedArray);
 
-            res.render("index", { processedArray, path: req.path });
+            res.render("index", { processedArray, path: uniformPath });
       } else {
             //? Handle file logic
             const { size } = statsObj;
@@ -68,10 +72,11 @@ app.get("/*", (req, res) => {
                   }
                   //! Read successfully
                   let peek = peekBuffer.toString("utf-8");
+
                   res.render("filepage", {
                         title: splitFileName.join(),
                         peek,
-                        path: req.path,
+                        path: uniformPath,
                         fileNameAndPath: fileName,
                         fileName: fileName.slice(fileName.lastIndexOf("/") + 1),
                         extension,

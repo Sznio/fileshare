@@ -49,7 +49,7 @@ app.get("/*", (req, res) => {
       } else {
             //? Handle file logic
             const { size } = statsObj;
-            const maxSmallFileSize = 200;
+            const maxSmallFileSize = 300;
 
             const splitFileName = [
                   req.path.slice(0, req.path.lastIndexOf(".")),

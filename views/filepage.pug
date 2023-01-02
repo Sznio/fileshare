@@ -5,7 +5,7 @@ block content
     .wrap 
         if(path != '/')
             a(class="goback" href="./") Back
-        h1(class="path " + extension)=fileNameAndPath+"."+extension
+        h1(class="path " + extension)=fileNameAndPath+ ((extension) ? ("."+extension) : (""))
         - let moreDataMsg = (bigFile ? `\n... + ${remaining} bytes remaining.` : '')
         .filecont
             pre=peek+moreDataMsg
